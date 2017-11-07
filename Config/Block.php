@@ -39,7 +39,7 @@ abstract class Block
      *
      * @return Config|null
      */
-    public function getConfig(): ?Config
+    public function getConfig()
     {
         return $this->config;
     }
@@ -87,7 +87,7 @@ abstract class Block
      *
      * @return string
      */
-    public function getBlockName(): ?string
+    public function getBlockName()
     {
         return $this->blockName;
     }
@@ -111,7 +111,7 @@ abstract class Block
      *
      * @return string|null
      */
-    public function getBlockParent(): ?string
+    public function getBlockParent()
     {
         return $this->blockParent;
     }

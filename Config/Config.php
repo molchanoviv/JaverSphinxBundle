@@ -87,10 +87,10 @@ class Config
                 if (strpos($blockHeader, ' ') === false) {
                     $blockType = $blockHeader;
                 } else {
-                    [$blockType, $blockName] = explode(' ', $blockHeader, 2);
+                    list($blockType, $blockName) = explode(' ', $blockHeader, 2);
 
                     if (strpos($blockName, ':') !== false) {
-                        [$blockName, $blockParent] = explode(':', str_replace(' ', '', $blockName), 2);
+                        list($blockName, $blockParent) = explode(':', str_replace(' ', '', $blockName), 2);
                     }
                 }
 
@@ -154,7 +154,7 @@ class Config
      *
      * @return Source|null
      */
-    public function getSourceByName(string $name): ?Source
+    public function getSourceByName(string $name)
     {
         foreach ($this->sources as $source) {
             if ($source->getBlockName() === $name) {
@@ -196,7 +196,7 @@ class Config
      *
      * @return Index|null
      */
-    public function getIndexByName(string $name): ?Index
+    public function getIndexByName(string $name)
     {
         foreach ($this->indexes as $index) {
             if ($index->getBlockName() === $name) {
@@ -226,7 +226,7 @@ class Config
      *
      * @return Indexer|null
      */
-    public function getIndexer(): ?Indexer
+    public function getIndexer()
     {
         return $this->indexer;
     }
@@ -250,7 +250,7 @@ class Config
      *
      * @return Daemon|null
      */
-    public function getDaemon(): ?Daemon
+    public function getDaemon()
     {
         return $this->daemon;
     }
