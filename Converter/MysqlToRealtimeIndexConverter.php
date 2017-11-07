@@ -76,7 +76,7 @@ class MysqlToRealtimeIndexConverter
                     $sqlAttrMulti = [];
                     $sqlAttrRegexp = '/^(?:#!)?sql_(attr|field)_(uint|bool|bigint|timestamp|float|string|json)$/';
 
-                    foreach ($sourceOptions as [$optionName, $optionValue]) {
+                    foreach ($sourceOptions as list($optionName, $optionValue)) {
                         if (preg_match($sqlAttrRegexp, $optionName, $match)) {
                             $schema[$optionValue] = $match[1] == 'field' ? $match[1] : $match[2];
                         } elseif ($optionName == 'sql_query') {
@@ -106,7 +106,7 @@ class MysqlToRealtimeIndexConverter
                         $newIndex->addOption('type', 'rt');
                         $newIndex->addOption('path', $this->getDataDir() . '/' . $index->getBlockName());
 
-                        foreach ($index->getMergedOptions() as [$optionName, $optionValue]) {
+                        foreach ($index->getMergedOptions() as list($optionName, $optionValue)) {
                             if (!in_array($optionName, $this->getIndexOptionsBlacklist())) {
                                 $newIndex->addOption($optionName, $optionValue);
                             }

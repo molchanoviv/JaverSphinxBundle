@@ -124,7 +124,7 @@ class DoctrineDataLoader
      */
     protected function loadDataForAttrMulti(string $indexName, array $attrMulti)
     {
-        foreach ($attrMulti as [$attrType, $attrName, $attrQuery]) {
+        foreach ($attrMulti as list($attrType, $attrName, $attrQuery)) {
             $stmt = $this->executeDatabaseQuery($attrQuery);
 
             $multiValues = [];
@@ -167,7 +167,7 @@ class DoctrineDataLoader
     {
         $data = [];
 
-        foreach ($joinedFields as [$queryType, $fieldName, $joinedQuery]) {
+        foreach ($joinedFields as list($queryType, $fieldName, $joinedQuery)) {
             $stmt = $this->executeDatabaseQuery($joinedQuery);
             $data[$fieldName] = [];
 

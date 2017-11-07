@@ -509,7 +509,7 @@ class Query
     {
         $pieces = [];
 
-        foreach ($conditions as [$column, $operator, $value]) {
+        foreach ($conditions as list($column, $operator, $value)) {
             if ($operator === 'BETWEEN') {
                 $value = $this->quoteValue($value[0]) . ' AND ' . $this->quoteValue($value[1]);
             } elseif (is_array($value)) {
@@ -535,7 +535,7 @@ class Query
     {
         $pieces = [];
 
-        foreach ($matches as [$column, $value, $safe]) {
+        foreach ($matches as list($column, $value, $safe)) {
             if (is_array($column)) {
                 $column = '(' . implode(',', array_map([$this, 'quoteMatch'], $column)) . ')';
             } else {
@@ -563,7 +563,7 @@ class Query
     {
         $pieces = [];
 
-        foreach ($orders as [$column, $direction]) {
+        foreach ($orders as list($column, $direction)) {
             $pieces[] = $column . ' ' . $direction;
         }
 
@@ -581,7 +581,7 @@ class Query
     {
         $pieces = [];
 
-        foreach ($options as [$name, $value]) {
+        foreach ($options as list($name, $value)) {
             $pieces[] = $name . ' = ' . $value;
         }
 

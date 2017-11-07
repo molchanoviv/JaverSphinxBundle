@@ -77,7 +77,7 @@ class Config
         $config = new static();
 
         if (preg_match_all('/([^{}]+)\{([^}]+)\}/m', $configText, $matches, PREG_SET_ORDER)) {
-            foreach ($matches as [, $blockHeader, $blockContent]) {
+            foreach ($matches as list(, $blockHeader, $blockContent)) {
                 $blockHeader = trim($blockHeader);
                 $blockName = null;
                 $blockParent = null;
@@ -95,7 +95,7 @@ class Config
                 }
 
                 if (preg_match_all('/^\s*(.*?)\s*=\s*(.*?)\s*$/m', $blockContent, $optionsMatches, PREG_SET_ORDER)) {
-                    foreach ($optionsMatches as [, $optionName, $optionValue]) {
+                    foreach ($optionsMatches as list(, $optionName, $optionValue)) {
                         $options[] = [$optionName, $optionValue];
                     }
                 }

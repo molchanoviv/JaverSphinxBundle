@@ -152,7 +152,7 @@ abstract class Block
     {
         $value = null;
 
-        foreach ($this->options as [$optionName, $optionValue]) {
+        foreach ($this->options as list($optionName, $optionValue)) {
             if ($optionName === $name) {
                 if (is_null($value)) {
                     $value = $optionValue;
@@ -215,7 +215,7 @@ abstract class Block
 
         $block .= "\n{\n";
 
-        foreach ($this->options as [$optionName, $optionValue]) {
+        foreach ($this->options as list($optionName, $optionValue)) {
             $block .= sprintf("    %s = %s\n", $optionName, $optionValue);
         }
 
