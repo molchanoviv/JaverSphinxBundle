@@ -14,7 +14,7 @@ use PDOStatement;
  */
 class Query
 {
-    protected const CONDITION_OPERATORS = ['=', '!=', '<', '>', '<=', '>=', 'IN', 'NOT IN', 'BETWEEN'];
+    const CONDITION_OPERATORS = ['=', '!=', '<', '>', '<=', '>=', 'IN', 'NOT IN', 'BETWEEN'];
 
     /**
      * @var PDO
